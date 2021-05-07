@@ -8,7 +8,7 @@ module.exports = {
         target: 'http://localhost:8888/',
         changeOrigin: true,
         pathRewrite: { // 路径更改
-          '^/api': 'api/private/v1' // 指定mock目录下文件
+          '^/api': 'api/private/v1' // 指定目录下文件
         }
       }
     }

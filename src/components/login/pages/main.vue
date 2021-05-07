@@ -10,7 +10,7 @@
       <!--用户名-->
       <el-form-item label="用户名 :" prop="username">
         <el-input
-          prefix-icon="fa fa-user"
+          prefix-icon="el-icon-s-custom"
           v-model="loginForm.username"
         ></el-input>
       </el-form-item>
@@ -32,15 +32,14 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   name: 'Main',
   data() {
     const userReg = /^[a-zA-Z][a-zA-Z0-9_]{3,15}$/
-    const passReg = /^[\w]{5,17}$/
-    function reg(min, max, reg, val, fn) {
+    const passReg = /^[a-zA-Z0-9]\w{5,16}$/
+    function reg(min, max, reg, val, fn, str) {
       if (!val) {
-        return fn(new Error('请输入用户名'))
+        return fn(new Error(str))
       } else if (!reg.test(val)) {
         fn(
           new Error(`以字母开头，长度在${min}~${max}之间，含字母、数字和下划线`)
@@ -50,10 +49,10 @@ export default {
       }
     }
     const userRule = (rule, value, callback) => {
-      reg(4, 16, userReg, value, callback)
+      reg(4, 16, userReg, value, callback, '请输入用户名')
     }
     const passRule = (rule, value, callback) => {
-      reg(6, 18, passReg, value, callback)
+      reg(6, 18, passReg, value, callback, '请输入密码')
     }
     return {
       // 表单验证
@@ -73,7 +72,12 @@ export default {
     submitForm() {
       this.$refs.form.validate(async valid => {
         if (!valid) return
-        const { data: res } = await axios.post('/api/login', this.loginForm)
+        const { data: res } = await this.$axios({
+          method: 'post',
+          url: '/login',
+          data: this.loginForm,
+          responseType: 'json' // 表明返回服务器返回的数据类型
+        })
         console.log(res)
         if (res.meta.status === 200) {
           this.$message.success(`恭喜你，${res.meta.msg}`)
@@ -84,7 +88,7 @@ export default {
           this.$router.push('/home')
         } else {
           // 登录失败
-          this.$message.error(`很遗憾，${res.meta.msg}`)
+          this.$message.error(res.meta.msg)
         }
       })
     },
@@ -98,7 +102,7 @@ export default {
 
 <style lang="less" scoped>
 .login /deep/ .el-input__icon {
-  font-size: 16px;
+  font-size: 18px;
 }
 .login {
   width: 450px;
@@ -115,9 +119,6 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 0 20px;
-    .rigth {
-      text-align: center;
-    }
   }
 }
 </style>

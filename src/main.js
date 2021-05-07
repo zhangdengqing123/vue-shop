@@ -2,13 +2,18 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import { store } from './store/store'
-import ElementUI from 'element-ui'
+import service from './api/http'
+// 按需导入组件
+import '@/plugins/elementUI'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'assets/reset.css'
 import 'assets/font-awesome.min.css'
 
+Vue.prototype.$axios = service
+
 Vue.config.productionTip = false
-Vue.use(ElementUI)
+
+// console.log(service)
 
 new Vue({
   router,
