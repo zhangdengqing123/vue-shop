@@ -4,7 +4,7 @@
     <el-header>
       <!-- 左侧 log、标题 -->
       <div class="top">
-        <img src="../../assets/log.jpeg" alt="" class="log">
+        <img src="../../assets/log.jpg" alt="" class="log">
         <span class="title">电商后台管理</span>
       </div>
       <!-- 右侧退出登录 -->
