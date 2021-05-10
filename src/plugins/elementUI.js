@@ -25,8 +25,11 @@ import {
   Switch,
   Tooltip,
   Dialog,
-  Popover,
-  MessageBox
+  MessageBox,
+  Tag,
+  Tree,
+  Select,
+  Option
 } from 'element-ui'
 
 // 使用 element-ui 组件
@@ -52,7 +55,10 @@ Vue.use(Button)
   .use(Switch)
   .use(Tooltip)
   .use(Dialog)
-  .use(Popover)
+  .use(Tag)
+  .use(Tree)
+  .use(Select)
+  .use(Option)
 
 // 全局注册使用
 Vue.prototype.$message = Message

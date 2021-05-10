@@ -180,7 +180,7 @@ export default {
         params: this.queryInfo,
         responseType: 'json'
       })
-      console.log(res)
+      // console.log(res)
       // 判断删除后暂无数据
       if (res.meta.status !== 200) return this.$message.error('获取用户列表失败!')
       if (res.data) {
