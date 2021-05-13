@@ -5,6 +5,8 @@ import { store } from './store/store'
 import service from './api/http'
 // 按需导入组件
 import '@/plugins/elementUI'
+// table 树形网格的插件
+import ZkTable from 'vue-table-with-tree-grid'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'assets/reset.css'
 import 'assets/font-awesome.min.css'
@@ -13,7 +15,7 @@ Vue.prototype.$axios = service
 
 Vue.config.productionTip = false
 
-// console.log(service)
+Vue.component(ZkTable.name, ZkTable)// 全局注册table树组件
 
 new Vue({
   router,

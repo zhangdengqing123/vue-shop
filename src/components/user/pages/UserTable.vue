@@ -286,6 +286,9 @@ export default {
   width: 100%;
   margin-bottom: 20px;
   font-size: 12px;
+  .table {
+    font-size: 12px;
+  }
 }
 .roleList {
   line-height: 28px;
