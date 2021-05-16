@@ -72,7 +72,7 @@
         <el-input type="cat_name" v-model="addCateForm.cat_name"></el-input>
       </el-form-item>
       <el-form-item label="父级分类">
-        <!-- props 用来指定配置对象 -->
+        <!-- 级联选择器 props 用来指定配置对象 -->
         <el-cascader
           v-model="selectKeys"
           :options="parentCateInfo"

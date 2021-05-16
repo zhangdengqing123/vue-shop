@@ -7,6 +7,7 @@ import Users from 'components/user/Users'
 import RightsList from 'components/rights/RightsList'
 import RolesList from 'components/rights/RolesList'
 import Cate from 'components/goods/Cate'
+import CateParmas from 'components/goods/Parmas'
 
 Vue.use(VueRouter)
 
@@ -35,7 +36,9 @@ const routes = [
       // 权限管理 -> 角色列表
       { path: '/roles', name: 'RolesList', component: RolesList },
       // 商品管理 -> 商品分类
-      { path: '/categories', name: 'Cate', component: Cate }
+      { path: '/categories', name: 'Cate', component: Cate },
+      // 商品管理 -> 分类参数
+      { path: '/params', name: 'CateParmas', component: CateParmas }
     ]
   }
 ]

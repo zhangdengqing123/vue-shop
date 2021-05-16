@@ -30,7 +30,10 @@ import {
   Tree,
   Select,
   Option,
-  Cascader
+  Cascader,
+  Alert,
+  Tabs,
+  TabPane
 } from 'element-ui'
 
 // 使用 element-ui 组件
@@ -61,6 +64,9 @@ Vue.use(Button)
   .use(Select)
   .use(Option)
   .use(Cascader)
+  .use(Alert)
+  .use(Tabs)
+  .use(TabPane)
 
 // 全局注册使用
 Vue.prototype.$message = Message
