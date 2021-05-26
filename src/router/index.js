@@ -7,7 +7,12 @@ import Users from 'components/user/Users'
 import RightsList from 'components/rights/RightsList'
 import RolesList from 'components/rights/RolesList'
 import Cate from 'components/goods/Cate'
-import CateParmas from 'components/goods/Parmas'
+import CateParmas from 'components/goods/Params'
+import GoodsList from 'components/goods/GoodsList'
+import GoodsAdd from 'components/goods/Add'
+import GoodsEdit from 'components/goods/Edit'
+import Orders from 'components/order/Order'
+import Reports from 'components/reports/Reports'
 
 Vue.use(VueRouter)
 
@@ -38,7 +43,17 @@ const routes = [
       // 商品管理 -> 商品分类
       { path: '/categories', name: 'Cate', component: Cate },
       // 商品管理 -> 分类参数
-      { path: '/params', name: 'CateParmas', component: CateParmas }
+      { path: '/params', name: 'CateParmas', component: CateParmas },
+      // 商品管理 -> 商品列表
+      { path: '/goods', name: 'GoodsList', component: GoodsList },
+      // 商品管理 -> 商品列表 -> 添加商品
+      { path: '/goods/add', name: 'GoodsAdd', component: GoodsAdd },
+      // 商品管理 -> 商品列表 -> 添加商品
+      { path: '/goods/edit/:id', name: 'GoodsEdit', component: GoodsEdit },
+      // 订单管理 -> 订单列表
+      { path: '/orders', name: 'Orders', component: Orders },
+      // 数据统计 -> 数据报表
+      { path: '/reports', name: 'Reports', component: Reports }
     ]
   }
 ]

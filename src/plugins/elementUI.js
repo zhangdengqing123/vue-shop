@@ -33,7 +33,14 @@ import {
   Cascader,
   Alert,
   Tabs,
-  TabPane
+  TabPane,
+  Steps,
+  Step,
+  CheckboxGroup,
+  Checkbox,
+  Upload,
+  Timeline,
+  TimelineItem
 } from 'element-ui'
 
 // 使用 element-ui 组件
@@ -67,6 +74,13 @@ Vue.use(Button)
   .use(Alert)
   .use(Tabs)
   .use(TabPane)
+  .use(Steps)
+  .use(Step)
+  .use(CheckboxGroup)
+  .use(Checkbox)
+  .use(Upload)
+  .use(Timeline)
+  .use(TimelineItem)
 
 // 全局注册使用
 Vue.prototype.$message = Message

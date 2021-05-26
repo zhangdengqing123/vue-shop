@@ -1,5 +1,5 @@
 const path = require('path')
-
+console.log(process.env.NODE_ENV === 'development') // 判断是否是开发模式
 
 module.exports = {
   devServer: {
@@ -13,6 +13,7 @@ module.exports = {
       }
     }
   },
+  // 配置导入文件指定路径入口
   chainWebpack: config => {
     config.resolve.alias
       .set('components', path.join(__dirname, './src/components'))

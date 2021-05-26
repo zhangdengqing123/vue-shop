@@ -365,7 +365,7 @@ export default {
         data: {
           attr_name: row.attr_name,
           attr_sel: row.attr_sel,
-          attr_vals: row.attr_vals.join(',')
+          attr_vals: row.attr_vals.join(', ')
         }
       })
       if (res.meta.status !== 200) {
