@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import { cloneDeep } from '@/plugins/cloneDeep'
 import * as echarts from 'echarts'
 export default {
   name: 'Report',
@@ -23,13 +22,28 @@ export default {
     return {
       options: {
         title: {
-          text: 'ECharts 数据报表'
+          text: 'ECharts 数据报表',
+          left: '10px',
+          textStyle: {
+            color: 'red',
+            fontSize: '16px'
+          }
         },
-        tooltip: {},
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            // type: 'cross',
+            label: {
+              backgroundColor: '#6a7985'
+            }
+          }
+        },
         legend: {
           data: ['销量']
         },
         xAxis: {
+          type: 'category',
+          boundaryGap: false,
           data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
         },
         yAxis: {},
@@ -53,7 +67,12 @@ export default {
       responseType: 'json'
     })
     if (res.meta.status !== 200) return this.$message.error('获取图表数据失败!')
-    this.options = cloneDeep(this.options, res.data)
+    // this.options = Object.assign({}, this.options, res.data)
+    console.log(res.data)
+    this.options.legend = res.data.legend
+    this.options.xAxis.data =  res.data.xAxis[0].data
+    this.options.yAxis = res.data.yAxis[0] 
+    this.options.series = res.data.series
     // 绘制图表
     myChart.setOption(this.options)
   }
