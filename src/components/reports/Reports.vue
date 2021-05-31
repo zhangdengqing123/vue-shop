@@ -46,7 +46,13 @@ export default {
           boundaryGap: false,
           data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
         },
-        yAxis: {},
+        yAxis: {
+          type: 'value',
+          scale: true, // 从最小值开始设置
+          axisLine: { // 显示y轴线条
+            show: true
+          }
+        },
         series: [
           {
             name: '销量',
@@ -70,8 +76,8 @@ export default {
     // this.options = Object.assign({}, this.options, res.data)
     console.log(res.data)
     this.options.legend = res.data.legend
-    this.options.xAxis.data =  res.data.xAxis[0].data
-    this.options.yAxis = res.data.yAxis[0] 
+    this.options.xAxis.data = res.data.xAxis[0].data
+    // this.options.yAxis = res.data.yAxis[0]
     this.options.series = res.data.series
     // 绘制图表
     myChart.setOption(this.options)

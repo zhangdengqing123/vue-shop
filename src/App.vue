@@ -8,4 +8,7 @@
 #app {
   height: 100%;
 }
+.spinner-icon {
+  display: none;
+}
 </style>
